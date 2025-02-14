@@ -43,9 +43,15 @@ def predict():
 
         # Make prediction
         pred = model.predict(data)
+        if pred[0]==0:
+            return jsonify({"result":"Neutral"})
+        elif pred[0]==1:
+            return jsonify({"result":"Positive"})
+        else:
+            return jsonify({"result":"Negative"})
         return jsonify({"result": str(pred[0])})
-
-    return render_template("predict.html")
+    else:
+        return render_template("predict.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
