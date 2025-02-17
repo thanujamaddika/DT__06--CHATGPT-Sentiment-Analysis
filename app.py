@@ -2,6 +2,12 @@ from flask import Flask, render_template, request, jsonify
 from test import TextToNum  # Ensure TextToNum is implemented correctly
 import pickle
 import os  # For checking file existence
+import nltk
+nltk.download('punkt')
+import nltk
+nltk.data.path.append("C:/Users/thanu/AppData/Roaming/nltk_data")
+
+
 
 app = Flask(__name__)
 
